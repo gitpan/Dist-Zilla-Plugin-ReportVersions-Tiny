@@ -25,7 +25,7 @@ requires:
   Dist::Zilla::Role::FileGatherer: 0
   Dist::Zilla::Role::TextTemplate: 0
   Moose: 0
-version: 1.00
+version: 1.01
 x_Dist_Zilla:
   plugins:
     -
@@ -67,7 +67,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::ReportVersions::Tiny
       name: '@DANIELP/ReportVersions::Tiny'
-      version: ~
+      version: 1.01
     -
       class: Dist::Zilla::Plugin::CompileTests
       name: '@DANIELP/CompileTests'

@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ReportVersions::Tiny;
 BEGIN {
-  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.00';
+  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.01';
 }
 use Moose;
 with 'Dist::Zilla::Role::FileGatherer';
@@ -11,22 +11,33 @@ use Dist::Zilla::File::FromCode;
 sub mvp_multivalue_args { qw{exclude} };
 has exclude => (is => 'ro', isa => 'ArrayRef', default => sub { [] });
 
-
 our $template = q{use strict;
 use warnings;
-use Test::More 'no_plan';  # the safest way to avoid Test::NoWarnings breaking
-                           # our expectations is no_plan, not done_testing!
+use Test::More 0.88;
+# This is a relatively nice way to avoid Test::NoWarnings breaking our
+# expectations by adding extra tests, without using no_plan.  It also helps
+# avoid any other test module that feels introducing random tests, or even
+# test plans, is a nice idea.
+our $success = 0;
+END { $success && done_testing; }
 
 my $v = "\n";
 
 eval {                     # no excuses!
+    # report our Perl details
+    my $want = {{
+        my $perl_version = delete $modules{perl};
+        defined($perl_version) ? "'${perl_version}'" : '"any version"';
+    }};
     my $pv = ($^V || $]);
-    $v .= "perl: $pv on $^O from $^X\n\n";     # report our Perl details
+    $v .= "perl: $pv (wanted $want) on $^O from $^X\n\n";
 };
+defined($@) and diag("$@");
 
 # Now, our module version dependencies:
 sub pmver {
-    my ($module) = @_;
+    my ($module, $wanted) = @_;
+    $wanted = " (want $wanted)";
     my $pmver;
     eval "require $module;";
     if ($@) {
@@ -50,13 +61,14 @@ sub pmver {
     }
 
     # So, we should be good, right?
-    return sprintf('%-40s => %s%s', $module, $pmver, "\n");
+    return sprintf('%-40s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
 {{
-    for my $module (@modules) {
-        my $text = "eval { \$v .= pmver('${module}') };\n";
-        $OUT .= $text;
+    for my $mod (sort keys %modules) {
+        my $ver = $modules{$mod};
+        $ver = 'any version' if $ver == 0;
+        $OUT .= "eval { \$v .= pmver('${mod}','${ver}') };\n";
     }
 }}
 
@@ -66,11 +78,17 @@ $v .= <<'EOT';
 
 Thanks for using my code.  I hope it works for you.
 If not, please try and include this output in the bug report.
+That will help me reproduce the issue and solve you problem.
 
 EOT
 
 diag($v);
 ok(1, "we really didn't test anything, just reporting data");
+$success = 1;
+
+# Work around another nasty module on CPAN. :/
+no warnings 'once';
+$Template::Test::NO_FLUSH = 1;
 exit 0;
 };
 
@@ -78,36 +96,36 @@ sub applicable_modules {
     my ($self) = @_;
 
     # Extract the set of modules we depend on.
-    my @modules;
-    {
-        my %modules;
-        my $prereq = $self->zilla->prereqs->as_string_hash;
-        for my $phase (keys %{ $prereq || {} }) {
-            for my $type (keys %{ $prereq->{$phase} || {} }) {
-                for my $module (keys %{ $prereq->{$phase}->{$type} || {} }) {
-                    $modules{$module} = 1;
-                }
+    my %modules;
+    my $prereq = $self->zilla->prereqs->as_string_hash;
+
+    # Identify the set of modules, and the highest version required.
+    for my $phase (keys %{ $prereq || {} }) {
+        for my $type (keys %{ $prereq->{$phase} || {} }) {
+            for my $module (keys %{ $prereq->{$phase}->{$type} || {} }) {
+                next if exists $modules{$module} and
+                    $modules{$module} > $prereq->{$phase}->{$type}->{$module};
+
+                $modules{$module} = $prereq->{$phase}->{$type}->{$module};
             }
         }
-
-        # This is all I ever really cared about.
-        @modules = sort { lc($a) cmp lc($b) }
-            grep {
-                my $name = $_;
-                my $found = grep { $name =~ m{$_} } @{ $self->exclude };
-                $found == 0;
-            }
-                grep { $_ ne 'perl' }
-                    keys %modules;
     }
 
-    return @modules;
+    # Cleanup
+    for my $module ( keys %modules ) {
+        if (grep { $module =~ m{$_} } @{ $self->exclude }) {
+            $self->log("Will not report version of excluded module ${module}.");
+            delete $modules{$module};
+        }
+    }
+
+    return \%modules;
 }
 
 sub generate_test_from_prereqs {
     my ($self) = @_;
     my $content = $self->fill_in_string($template, {
-        modules => [$self->applicable_modules]
+        modules => $self->applicable_modules
     });
 
     return $content;
@@ -142,7 +160,7 @@ Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during t
 
 =head1 VERSION
 
-version 1.00
+version 1.01
 
 =head1 SYNOPSIS
 

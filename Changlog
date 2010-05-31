@@ -1,3 +1,50 @@
+==============================
+9999-99-99 99:99:99 +0000 HEAD
+==============================
+
+  commit d84bd1b209a2b615d0def4ecfc9a6c07f4efd9c3
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date:   Mon May 31 23:48:57 2010 +1000
+  
+    Final polish: report more nicely 'any version' rather than 0 for modules.
+
+  commit 3a9415077d37cf2b6fadaf06dcb31983d30680c9
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date:   Mon May 31 23:44:52 2010 +1000
+  
+    Make the "please help me out" text a little nicer.
+
+  commit c046d5b54a62f4df4a33e347ca5cb2ed3c33a67e
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date:   Mon May 31 23:43:09 2010 +1000
+  
+    Added a work-around for Template::Test generating a second test plan.
+
+    This involves writing into a random package namespace, but since we exit
+    immediately after the damage should be reasonably controlled.
+
+  commit 2fb6dcf3b69406f82b4b65dd254d22af848cc99b
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date:   Mon May 31 23:41:14 2010 +1000
+  
+    Add, and test, logging when a module is skipped due to the exclusion
+    list.
+
+  commit 6f725030cd21a3981665179d71cbf60df20b1db5
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date:   Mon May 31 23:14:22 2010 +1000
+  
+    Rewrite the desired version reporting to support Perl requests also. This
+    also modifies the generated test code a bit to avoid 'no_plan', although
+    I am not yet certain this is the best idea.
+
+  commit 70879d88d5496fb540cb0bd1dc24a4afd36d34f0
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Mon May 31 22:41:53 2010 +1000
+  
+    Added display of the the required version to modules, courtesy
+    Apocalypse. 
+
 ===================================
 End of changes in the last 365 days
 ===================================
