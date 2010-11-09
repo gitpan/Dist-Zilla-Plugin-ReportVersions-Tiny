@@ -1,0 +1,54 @@
+# NAME
+
+Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during testing
+
+# SYNOPSIS
+
+In your `dist.ini`, include `[ReportVersions::Tiny]` to load the plugin.
+
+# DESCRIPTION
+
+This module integrates with [Dist::Zilla](http://search.cpan.org/perldoc?Dist::Zilla) to automatically add an additional
+test to your released software.  Rather than testing features of the software,
+this reports the versions of all static module dependencies, and of Perl, at
+the time the tests are run.
+
+The value of this is that when someone submits a test failure report you can
+see which versions of the modules were installed and, hopefully, be able to
+reproduce problems that are dependent on a specific set of module versions.
+
+# Differences from Dist::Zilla::Plugin::ReportVersions
+
+This module has the same goal as [Dist::Zilla::Plugin::ReportVersions](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::ReportVersions), but
+takes a much lighter weight approach: the module that inspired my code bundles
+a copy of YAML::Tiny, reads META.yml, then reports from that.
+
+This gives the most accurate picture, since any requirements added at install
+time will be detected, but is overkill for the vast majority of modules that
+use a simple, static list of dependencies.
+
+This module, rather, generates the list of modules to test at the time the
+distribution is being built, and reports from that static list.
+
+The biggest advantage of this is that I no longer have to bundle a large
+volume of code that isn't really needed, and have a simpler test suite with
+less places that things can go wrong.
+
+# ARGUMENTS
+
+- __exclude__
+
+Exclude an individual items from version reporting.
+
+This is most commonly required if some module otherwise interferes with the
+normal operation of the tests, such as [Module::Install](http://search.cpan.org/perldoc?Module::Install), which does not
+behave as you might expect if normally `use`d.
+
+# AUTHORS
+
+- Daniel Pittman <daniel@rimspace.net>
+
+# COPYRIGHT AND LICENSE
+
+Copyright 2010 by Daniel Pittman <daniel@rimspace.net>
+All Rights Reserved.

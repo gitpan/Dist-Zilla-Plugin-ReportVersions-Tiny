@@ -5,6 +5,7 @@ META.json
 META.yml
 Makefile.PL
 README
+README.mkdn
 dist.ini
 lib/Dist/Zilla/Plugin/ReportVersions/Tiny.pm
 t/00-compile.t

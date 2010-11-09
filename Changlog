@@ -2,6 +2,26 @@
 9999-99-99 99:99:99 +0000 HEAD
 ==============================
 
+  commit 2cfd1c2eecda0c19a8f14799e48f9c2b2e4e2437
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date:   Wed Nov 10 09:52:26 2010 +1100
+  
+    dzil: update dist.ini for deprecated plugin names...
+
+  commit 26c37c2e91e8f976d652cfda357dea86bda95248
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date:   Wed Nov 10 09:51:46 2010 +1100
+  
+    Increase the width of the package name in the formatted output.
+
+    This makes the code a tiny bit cleaner when we have very long
+    distribution names present like, oh,
+    Dist::Zilla::Plugin::ReportVersions::Tiny, say. 
+
+======================================
+2010-05-31 23:48:57 +1000 release-1.01
+======================================
+
   commit d84bd1b209a2b615d0def4ecfc9a6c07f4efd9c3
   Author: Daniel Pittman <daniel@rimspace.net>
   Date:   Mon May 31 23:48:57 2010 +1000

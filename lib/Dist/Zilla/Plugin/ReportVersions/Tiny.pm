@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ReportVersions::Tiny;
 BEGIN {
-  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.01';
+  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.02';
 }
 use Moose;
 with 'Dist::Zilla::Role::FileGatherer';
@@ -61,7 +61,7 @@ sub pmver {
     }
 
     # So, we should be good, right?
-    return sprintf('%-40s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
+    return sprintf('%-45s => %-10s%-15s%s', $module, $pmver, $wanted, "\n");
 }
 
 {{
@@ -160,7 +160,7 @@ Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during t
 
 =head1 VERSION
 
-version 1.01
+version 1.02
 
 =head1 SYNOPSIS
 
