@@ -18,6 +18,7 @@ my %WriteMakefileArgs = (
     'Test::Exception' => '0',
     'Test::MockObject' => '0',
     'Test::More' => '0.88',
+    'Test::Warn' => '0',
     'vars' => '0'
   },
   'CONFIGURE_REQUIRES' => {
@@ -34,7 +35,7 @@ my %WriteMakefileArgs = (
     'Dist::Zilla::Role::TextTemplate' => '0',
     'Moose' => '0'
   },
-  'VERSION' => '1.02',
+  'VERSION' => '1.03',
   'test' => {
     'TESTS' => 't/*.t'
   }

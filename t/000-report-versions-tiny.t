@@ -60,6 +60,7 @@ eval { $v .= pmver('Test::Differences','any version') };
 eval { $v .= pmver('Test::Exception','any version') };
 eval { $v .= pmver('Test::MockObject','any version') };
 eval { $v .= pmver('Test::More','0.88') };
+eval { $v .= pmver('Test::Warn','any version') };
 eval { $v .= pmver('vars','any version') };
 
 

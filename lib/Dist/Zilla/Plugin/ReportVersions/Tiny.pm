@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ReportVersions::Tiny;
 BEGIN {
-  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.02';
+  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.03';
 }
 use Moose;
 with 'Dist::Zilla::Role::FileGatherer';
@@ -67,7 +67,9 @@ sub pmver {
 {{
     for my $mod (sort keys %modules) {
         my $ver = $modules{$mod};
-        $ver = 'any version' if $ver == 0;
+        # The string comparison is important: it stops us treating "0.0.6" as
+        # equal to "0"; see CPAN RT #63912
+        $ver = 'any version' if $ver eq '0';
         $OUT .= "eval { \$v .= pmver('${mod}','${ver}') };\n";
     }
 }}
@@ -160,7 +162,7 @@ Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during t
 
 =head1 VERSION
 
-version 1.02
+version 1.03
 
 =head1 SYNOPSIS
 

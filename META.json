@@ -4,7 +4,7 @@
       "Daniel Pittman <daniel@rimspace.net>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.102342, CPAN::Meta::Converter version 2.102400",
+   "generated_by" : "Dist::Zilla version 4.200000, CPAN::Meta::Converter version 2.102400",
    "license" : [
       "perl_5"
    ],
@@ -36,12 +36,13 @@
             "Test::Exception" : 0,
             "Test::MockObject" : 0,
             "Test::More" : "0.88",
+            "Test::Warn" : 0,
             "vars" : 0
          }
       }
    },
    "release_status" : "stable",
-   "version" : "1.02",
+   "version" : "1.03",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -52,42 +53,42 @@
          {
             "class" : "Dist::Zilla::Plugin::GatherDir",
             "name" : "@DANIELP/GatherDir",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::ExecDir",
             "name" : "@DANIELP/ExecDir",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::ShareDir",
             "name" : "@DANIELP/ShareDir",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::PruneCruft",
             "name" : "@DANIELP/PruneCruft",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::ManifestSkip",
             "name" : "@DANIELP/ManifestSkip",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::AutoPrereqs",
             "name" : "@DANIELP/AutoPrereqs",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::PkgVersion",
             "name" : "@DANIELP/PkgVersion",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::PodVersion",
             "name" : "@DANIELP/PodVersion",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReportVersions::Tiny",
@@ -107,7 +108,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MetaTests",
             "name" : "@DANIELP/MetaTests",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::MinimumVersionTests",
@@ -122,7 +123,7 @@
          {
             "class" : "Dist::Zilla::Plugin::PodSyntaxTests",
             "name" : "@DANIELP/PodSyntaxTests",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::UnusedVarsTests",
@@ -132,32 +133,32 @@
          {
             "class" : "Dist::Zilla::Plugin::ExtraTests",
             "name" : "@DANIELP/ExtraTests",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
             "name" : "@DANIELP/MetaConfig",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaYAML",
             "name" : "@DANIELP/MetaYAML",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaJSON",
             "name" : "@DANIELP/MetaJSON",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::License",
             "name" : "@DANIELP/License",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::Readme",
             "name" : "@DANIELP/Readme",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::ReadmeMarkdownFromPod",
@@ -167,7 +168,7 @@
          {
             "class" : "Dist::Zilla::Plugin::MakeMaker",
             "name" : "@DANIELP/MakeMaker",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::ChangelogFromGit",
@@ -177,7 +178,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Manifest",
             "name" : "@DANIELP/Manifest",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
@@ -187,12 +188,12 @@
          {
             "class" : "Dist::Zilla::Plugin::TestRelease",
             "name" : "@DANIELP/TestRelease",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::ConfirmRelease",
             "name" : "@DANIELP/ConfirmRelease",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
@@ -207,7 +208,7 @@
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
             "name" : "@DANIELP/UploadToCPAN",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",
@@ -218,27 +219,27 @@
                }
             },
             "name" : "Prereqs",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":InstallModules",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":TestFiles",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ExecFiles",
-            "version" : "4.102342"
+            "version" : "4.200000"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
             "name" : ":ShareFiles",
-            "version" : "4.102342"
+            "version" : "4.200000"
          }
       ],
       "zilla" : {
@@ -246,7 +247,7 @@
          "config" : {
             "is_trial" : 0
          },
-         "version" : "4.102342"
+         "version" : "4.200000"
       }
    }
 }

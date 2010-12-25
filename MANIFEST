@@ -17,3 +17,4 @@ t/release-minimum-version.t
 t/release-pod-syntax.t
 t/release-portability.t
 t/release-unused-vars.t
+t/version-compare-as-number.t
