@@ -52,7 +52,7 @@ eval { $v .= pmver('Dist::Zilla','3.101390') };
 eval { $v .= pmver('Dist::Zilla::File::FromCode','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::FileGatherer','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::TextTemplate','any version') };
-eval { $v .= pmver('ExtUtils::MakeMaker','6.31') };
+eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };
 eval { $v .= pmver('File::Temp','any version') };
 eval { $v .= pmver('Moose','any version') };
@@ -61,7 +61,9 @@ eval { $v .= pmver('Test::Exception','any version') };
 eval { $v .= pmver('Test::MockObject','any version') };
 eval { $v .= pmver('Test::More','0.88') };
 eval { $v .= pmver('Test::Warn','any version') };
+eval { $v .= pmver('strict','any version') };
 eval { $v .= pmver('vars','any version') };
+eval { $v .= pmver('warnings','any version') };
 
 
 

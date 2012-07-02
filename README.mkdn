@@ -2,6 +2,10 @@
 
 Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during testing
 
+# VERSION
+
+version 1.04
+
 # SYNOPSIS
 
 In your `dist.ini`, include `[ReportVersions::Tiny]` to load the plugin.

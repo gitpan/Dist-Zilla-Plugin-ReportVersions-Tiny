@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ReportVersions::Tiny;
-BEGIN {
-  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.03';
+{
+  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.04';
 }
 use Moose;
 with 'Dist::Zilla::Role::FileGatherer';
@@ -162,7 +162,7 @@ Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during t
 
 =head1 VERSION
 
-version 1.03
+version 1.04
 
 =head1 SYNOPSIS
 

@@ -1,0 +1,125 @@
+==================================================
+Changes from 2009-10-06 00:00:00 +0000 to present.
+==================================================
+
+-----------------------------------------
+version 1.04 at 2012-07-02 22:11:35 +0000
+-----------------------------------------
+
+  Change: b831d520c7ce7de1ec28078530c38514c81d8160
+  Author: Olivier Mengué <dolmen@cpan.org>
+  Date : 2012-07-03 00:06:54 +0000
+
+    DZ: add [GithubMeta] 
+
+  Change: 6f50cec7115f3f7edc7aab7f05aa18ac0999a6bd
+  Author: Olivier Mengué <dolmen@cpan.org>
+  Date : 2012-07-02 22:07:28 +0000
+
+    DZ: Rename 'Changlog' to 'Changes'
+
+    Rename the 'Changlog' file (as defined in @DANIELP) to the more standard
+    'Changes' which is recognized by MetaCPAN. 
+
+  Change: 0923dc7959028b8d58b008c368f1beba19c7654b
+  Author: Olivier Mengué <dolmen@cpan.org>
+  Date : 2012-06-15 10:12:28 +0000
+
+    DZ: replace deprecated plugins in dist.ini
+
+    First commit of the new maintainer. Also use [Bootstrap::lib] 
+
+-----------------------------------------
+version 1.03 at 2010-12-25 01:35:02 +0000
+-----------------------------------------
+
+  Change: 43fde9bb7427263f38660d20c1ea35e7ebebf64a
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-12-25 12:35:02 +0000
+
+    Fix misdetection of versions like '0.0.6' as 'any version'
+
+    This was a bug caused by a numeric comparison of a dotted version string.
+    Now fixed by forcing a string comparison, and tested to ensure we don't
+    revert. 
+
+-----------------------------------------
+version 1.02 at 2010-11-09 22:52:26 +0000
+-----------------------------------------
+
+  Change: 2cfd1c2eecda0c19a8f14799e48f9c2b2e4e2437
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-11-10 09:52:26 +0000
+
+    dzil: update dist.ini for deprecated plugin names... 
+
+  Change: 26c37c2e91e8f976d652cfda357dea86bda95248
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-11-10 09:51:46 +0000
+
+    Increase the width of the package name in the formatted output.
+
+    This makes the code a tiny bit cleaner when we have very long
+    distribution names present like, oh,
+    Dist::Zilla::Plugin::ReportVersions::Tiny, say. 
+
+-----------------------------------------
+version 1.01 at 2010-05-31 13:48:57 +0000
+-----------------------------------------
+
+  Change: d84bd1b209a2b615d0def4ecfc9a6c07f4efd9c3
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-05-31 23:48:57 +0000
+
+    Final polish: report more nicely 'any version' rather than 0 for modules. 
+
+  Change: 3a9415077d37cf2b6fadaf06dcb31983d30680c9
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-05-31 23:44:52 +0000
+
+    Make the "please help me out" text a little nicer. 
+
+  Change: c046d5b54a62f4df4a33e347ca5cb2ed3c33a67e
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-05-31 23:44:23 +0000
+
+    Added a work-around for Template::Test generating a second test plan.
+
+    This involves writing into a random package namespace, but since we exit
+    immediately after the damage should be reasonably controlled. 
+
+  Change: 2fb6dcf3b69406f82b4b65dd254d22af848cc99b
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-05-31 23:41:14 +0000
+
+    Add, and test, logging when a module is skipped due to the exclusion
+    list. 
+
+  Change: 6f725030cd21a3981665179d71cbf60df20b1db5
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-05-31 23:16:22 +0000
+
+    Rewrite the desired version reporting to support Perl requests also. This
+    also modifies the generated test code a bit to avoid 'no_plan', although
+    I am not yet certain this is the best idea. 
+
+  Change: 70879d88d5496fb540cb0bd1dc24a4afd36d34f0
+  Author: Apocalypse <perl@0ne.us>
+  Date : 2010-05-31 22:41:53 +0000
+
+    Added display of the the required version to modules, courtesy
+    Apocalypse. 
+
+-----------------------------------------
+version 1.00 at 2010-05-30 12:53:19 +0000
+-----------------------------------------
+
+  Change: 77ca9b3f20c0cb043aba5e4b9d84659ba68a289b
+  Author: Daniel Pittman <daniel@rimspace.net>
+  Date : 2010-05-30 22:53:19 +0000
+
+    Build the the new module, including tests and support infrastructure. 
+
+================
+End of releases.
+================
