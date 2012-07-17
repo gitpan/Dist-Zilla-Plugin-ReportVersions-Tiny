@@ -16,11 +16,11 @@ my %WriteMakefileArgs = (
     "File::Temp" => 0,
     "Test::Differences" => 0,
     "Test::Exception" => 0,
+    "Test::Fatal" => 0,
     "Test::MockObject" => 0,
     "Test::More" => "0.88",
     "Test::Warn" => 0,
     "strict" => 0,
-    "vars" => 0,
     "warnings" => 0
   },
   "CONFIGURE_REQUIRES" => {
@@ -35,9 +35,10 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::File::FromCode" => 0,
     "Dist::Zilla::Role::FileGatherer" => 0,
     "Dist::Zilla::Role::TextTemplate" => 0,
-    "Moose" => 0
+    "Moose" => 0,
+    "version" => 0
   },
-  "VERSION" => "1.04",
+  "VERSION" => "1.05",
   "test" => {
     "TESTS" => "t/*.t"
   }

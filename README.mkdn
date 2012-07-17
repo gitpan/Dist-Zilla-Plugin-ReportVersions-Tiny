@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during t
 
 # VERSION
 
-version 1.04
+version 1.05
 
 # SYNOPSIS
 
@@ -47,6 +47,32 @@ Exclude an individual items from version reporting.
 This is most commonly required if some module otherwise interferes with the
 normal operation of the tests, such as [Module::Install](http://search.cpan.org/perldoc?Module::Install), which does not
 behave as you might expect if normally `use`d.
+
+- __include__
+
+    [ReportVersions::Tiny]
+    include = JSON:PP 2.27103
+    include = Path::Class
+    include = Some::Thing = 1.1
+
+Include extra modules in version reporting.
+This can be specified multiple times.  The module name and version can be
+separated by spaces (and/or an equal sign).  If no version is specified
+"0" will be used.
+
+This can be useful to help track down issues in installation or testing
+environments.  Perhaps a module used by one of your prereqs is broken
+and/or has a missing (or insufficient) dependency.  You can use this option
+to specify multiple extra modules whose versions you would like reported.
+They aren't modules that you need to declare as prerequisites
+since you don't use them directly, but you've found installation issues
+and it would be nice to show which version (if any) is in fact installed.
+
+This option is inspired by advice from Andreas J. König (ANDK)
+who suggested adding a list of "interesting modules" to the
+`Makefile.PL` and checking their version so that the test reports can show
+which version (if any) is in fact installed
+(see the [CPAN](http://search.cpan.org/perldoc?CPAN) dist for an example).
 
 # AUTHORS
 

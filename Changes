@@ -1,9 +1,120 @@
 ==================================================
-Changes from 2009-10-06 00:00:00 +0000 to present.
+Changes from 2009-10-21 00:00:00 +0000 to present.
 ==================================================
 
 -----------------------------------------
-version 1.04 at 2012-07-02 22:11:35 +0000
+version 1.05 at 2012-07-17 23:31:36 +0000
+-----------------------------------------
+
+  Change: 28285bf5a694500b0abe0c9dda4e80195a025f12
+  Author: Olivier Mengué <dolmen@cpan.org>
+  Date : 2012-07-18 01:29:12 +0000
+
+    Cleanup test dependencies
+
+    Cleanup of module dependencies in tests: - remove dependency on FindBin -
+    never load File::Temp as it is not used - load Test::Differences only
+    where it is used 
+
+  Change: e765f54ca902e7efd4a72832728f241c889ea12f
+  Author: Olivier Mengué <dolmen@cpan.org>
+  Date : 2012-07-17 23:47:15 +0000
+
+    Fix 'use vars' dependency in test 
+
+  Change: b9c1ce1470affa9e938dc564024a59c69f53cd39
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:04 +0000
+
+    Hide from pause 
+
+  Change: b39c933f965cae8b973d61d5e83d580fc7ac9f31
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:04 +0000
+
+    Fix 3part == int again by temporary parse 
+
+  Change: 19f0a919634eff8532593028a5c7ec89996a3c99
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    Fix the rest of the bug by fixing the spelling mistake 
+
+  Change: c2f090f0c1d7bf9044652cb7e490aac91a2f3ee7
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    refactor rwstauners include test to use the mock dist::zilla and
+    Test::Fatal instead of Test::Exception 
+
+  Change: c1e366de7f78934b5f906789750d44f71e9f490d
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    Normalise version objects back to strings before returning them from
+    applicable-modules 
+
+  Change: 2939745ba7745f35f603d6c72ca18b3fa666d9ec
+  Author: Randy Stauner <randy@magnificent-tears.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    Test the 'include' attribute
+
+    copy from 'exclude' test and make a few modifications.
+
+    The mock Dzil could be abstracted to a shared testing module, (which
+    would require MetaNoIndex), but Test::DZil could also be used if the DZil
+    version requirement was increased. 
+
+  Change: 6c9cc7bf5f622a7c23c183cab803ef01e4ae2dc5
+  Author: Randy Stauner <randy@magnificent-tears.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    Add 'include' option for specifying extra modules to report
+
+    This complements the 'exclude' attribute but helps in debugging broken
+    testing/installation environments. 
+
+  Change: f004454265ea3ae0f00d1ed112af321825bebd45
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    Apply changes suggested by Mithaldu on RT#67127 , with some minor changes 
+
+  Change: 413d51875011782d50efb31749406b3e60e93c9a
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    Add version.pm based parse-and-compare logic 
+
+  Change: f17d46cf494553906a4722e313ed279205c47c8e
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    Add a test for handling 3-part versions, which presently warns and
+    doesn't work properly 
+
+  Change: 776d6c57fef6eb6cc6598e36755f4d83096df0cb
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:03 +0000
+
+    refactor body to make some of the bits easier to probe in tests, as well
+    as removing nasty logic from the template 
+
+  Change: 3110f4aed1e6333dce74b0c7536ab37e71b192da
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:02 +0000
+
+    Refactor code to use Test::Fatal instead of Test::Exception 
+
+  Change: 3d1034a80e12a93bacf5290da036753e5527b44d
+  Author: Kent Fredric <kentfredric@gmail.com>
+  Date : 2012-07-03 00:08:02 +0000
+
+    factor out the mocking code from exclude.t to MockZilla 
+
+-----------------------------------------
+version 1.04 at 2012-07-02 22:06:54 +0000
 -----------------------------------------
 
   Change: b831d520c7ce7de1ec28078530c38514c81d8160

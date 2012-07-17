@@ -10,7 +10,10 @@ dist.ini
 lib/Dist/Zilla/Plugin/ReportVersions/Tiny.pm
 t/00-compile.t
 t/000-report-versions-tiny.t
+t/3part_prereq.t
 t/exclude.t
+t/include.t
+t/lib/MockZilla.pm
 t/release-distmeta.t
 t/release-has-version.t
 t/release-minimum-version.t
