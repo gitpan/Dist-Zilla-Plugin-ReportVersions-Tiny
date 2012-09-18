@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during t
 
 # VERSION
 
-version 1.05
+version 1.06
 
 # SYNOPSIS
 
@@ -76,9 +76,19 @@ which version (if any) is in fact installed
 
 # AUTHORS
 
-- Daniel Pittman <daniel@rimspace.net>
+Maintainer since 1.04: Olivier Mengu&eacute; [mailto:dolmen@cpan.org](mailto:dolmen@cpan.org).
+
+Original author: Daniel Pittman <daniel@rimspace.net>.
+
+Contributors:
+
+- Kent Fredric
+- Randy Stauner
 
 # COPYRIGHT AND LICENSE
 
-Copyright 2010 by Daniel Pittman <daniel@rimspace.net>
+Copyright 2012 by Olivier Mengu&eacute; [mailto:dolmen@cpan.org](mailto:dolmen@cpan.org)
 All Rights Reserved.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.

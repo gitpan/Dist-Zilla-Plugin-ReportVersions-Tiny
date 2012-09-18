@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "reports dependency versions during testing",
-  "AUTHOR" => "Daniel Pittman <daniel\@rimspace.net>",
+  "AUTHOR" => "Daniel Pittman <daniel\@rimspace.net>, Olivier Mengue <dolmen\@cpan.org>",
   "BUILD_REQUIRES" => {
     "File::Find" => 0,
     "File::Temp" => 0,
@@ -38,7 +38,7 @@ my %WriteMakefileArgs = (
     "Moose" => 0,
     "version" => 0
   },
-  "VERSION" => "1.05",
+  "VERSION" => "1.06",
   "test" => {
     "TESTS" => "t/*.t"
   }

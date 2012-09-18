@@ -1,236 +1,64 @@
-==================================================
-Changes from 2009-10-21 00:00:00 +0000 to present.
-==================================================
+Changes for Dist-Zilla-Plugin-ReportVersions-Tiny
 
------------------------------------------
-version 1.05 at 2012-07-17 23:31:36 +0000
------------------------------------------
+1.06    2012-09-19    DOLMEN (Olivier Mengué)
 
-  Change: 28285bf5a694500b0abe0c9dda4e80195a025f12
-  Author: Olivier Mengué <dolmen@cpan.org>
-  Date : 2012-07-18 01:29:12 +0000
+	[ Fixes ]
+	- Use $] instead of $^V for compatibility with older perl. Thanks RJBS!
 
-    Cleanup test dependencies
+	[ Meta ]
+	- DZ: drop ChangelogFromGit
+	- Rewrote 'Changes' in a human readable format instead of a bare git
+	  log.
 
-    Cleanup of module dependencies in tests: - remove dependency on FindBin -
-    never load File::Temp as it is not used - load Test::Differences only
-    where it is used 
+1.05    2012-07-18    DOLMEN (Olivier Mengué)
 
-  Change: e765f54ca902e7efd4a72832728f241c889ea12f
-  Author: Olivier Mengué <dolmen@cpan.org>
-  Date : 2012-07-17 23:47:15 +0000
+	[ Fixes ]
+	- Fixed RT#67127 and other various things. See git log for details.
+	- Thanks KENTNL (Kent Frederic), MITHALDU, RSTAUNER (Randy Stauner)
+	  and APOCALYPSE!
 
-    Fix 'use vars' dependency in test 
+	[ Features ]
+	- Add 'include' option. Thanks RSTAUNER (Randy Stauner) and KENTNL
+	  (Kent Fredric)!
 
-  Change: b9c1ce1470affa9e938dc564024a59c69f53cd39
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:04 +0000
+	[ Tests ]
+	- More tests. Thanks KENTNL!
+	- Cleanup test dependencies (DOLMEN):
+	  - remove FindBin, vars, File::Temp.
+	  - load Test::Differences where it is used.
 
-    Hide from pause 
+1.04    2012-07-02    DOLMEN (Olivier Mengué)
 
-  Change: b39c933f965cae8b973d61d5e83d580fc7ac9f31
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:04 +0000
+	[ Meta ]
+	- New maintainer.
+	- Add Github repo in META.
+	- Rename 'Changlog' to 'Changes'.
 
-    Fix 3part == int again by temporary parse 
+1.03    2010-12-25    DANIELP (Daniel Pittman)
 
-  Change: 19f0a919634eff8532593028a5c7ec89996a3c99
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:03 +0000
+	[ Fixes ]
+	- Fix misdetection of versions like '0.0.6' as 'any version'
 
-    Fix the rest of the bug by fixing the spelling mistake 
+1.02    2010-11-09    DANIELP (Daniel Pittman)
 
-  Change: c2f090f0c1d7bf9044652cb7e490aac91a2f3ee7
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:03 +0000
+	[ Fixes ]
+	- Increase the width of the package name in the formatted output
 
-    refactor rwstauners include test to use the mock dist::zilla and
-    Test::Fatal instead of Test::Exception 
+1.01    2010-05-31    DANIELP (Daniel Pittman)
 
-  Change: c1e366de7f78934b5f906789750d44f71e9f490d
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:03 +0000
+	[ Fixes ]
+	- Added a work-around for Template::Test generating a second test plan.
 
-    Normalise version objects back to strings before returning them from
-    applicable-modules 
+	[ Features ]
+	- Added display of the the required version to modules, courtesy
+	  Apocalypse.
+	- Rewrite the desired version reporting to support Perl requests also.
+	- Make the "please help me out" text a little nicer.
+	- Final polish: report more nicely 'any version' rather than 0 for
+	  modules.
 
-  Change: 2939745ba7745f35f603d6c72ca18b3fa666d9ec
-  Author: Randy Stauner <randy@magnificent-tears.com>
-  Date : 2012-07-03 00:08:03 +0000
+	[ Tests ]
+	- More tests!
 
-    Test the 'include' attribute
-
-    copy from 'exclude' test and make a few modifications.
-
-    The mock Dzil could be abstracted to a shared testing module, (which
-    would require MetaNoIndex), but Test::DZil could also be used if the DZil
-    version requirement was increased. 
-
-  Change: 6c9cc7bf5f622a7c23c183cab803ef01e4ae2dc5
-  Author: Randy Stauner <randy@magnificent-tears.com>
-  Date : 2012-07-03 00:08:03 +0000
-
-    Add 'include' option for specifying extra modules to report
-
-    This complements the 'exclude' attribute but helps in debugging broken
-    testing/installation environments. 
-
-  Change: f004454265ea3ae0f00d1ed112af321825bebd45
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:03 +0000
-
-    Apply changes suggested by Mithaldu on RT#67127 , with some minor changes 
-
-  Change: 413d51875011782d50efb31749406b3e60e93c9a
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:03 +0000
-
-    Add version.pm based parse-and-compare logic 
-
-  Change: f17d46cf494553906a4722e313ed279205c47c8e
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:03 +0000
-
-    Add a test for handling 3-part versions, which presently warns and
-    doesn't work properly 
-
-  Change: 776d6c57fef6eb6cc6598e36755f4d83096df0cb
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:03 +0000
-
-    refactor body to make some of the bits easier to probe in tests, as well
-    as removing nasty logic from the template 
-
-  Change: 3110f4aed1e6333dce74b0c7536ab37e71b192da
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:02 +0000
-
-    Refactor code to use Test::Fatal instead of Test::Exception 
-
-  Change: 3d1034a80e12a93bacf5290da036753e5527b44d
-  Author: Kent Fredric <kentfredric@gmail.com>
-  Date : 2012-07-03 00:08:02 +0000
-
-    factor out the mocking code from exclude.t to MockZilla 
-
------------------------------------------
-version 1.04 at 2012-07-02 22:06:54 +0000
------------------------------------------
-
-  Change: b831d520c7ce7de1ec28078530c38514c81d8160
-  Author: Olivier Mengué <dolmen@cpan.org>
-  Date : 2012-07-03 00:06:54 +0000
-
-    DZ: add [GithubMeta] 
-
-  Change: 6f50cec7115f3f7edc7aab7f05aa18ac0999a6bd
-  Author: Olivier Mengué <dolmen@cpan.org>
-  Date : 2012-07-02 22:07:28 +0000
-
-    DZ: Rename 'Changlog' to 'Changes'
-
-    Rename the 'Changlog' file (as defined in @DANIELP) to the more standard
-    'Changes' which is recognized by MetaCPAN. 
-
-  Change: 0923dc7959028b8d58b008c368f1beba19c7654b
-  Author: Olivier Mengué <dolmen@cpan.org>
-  Date : 2012-06-15 10:12:28 +0000
-
-    DZ: replace deprecated plugins in dist.ini
-
-    First commit of the new maintainer. Also use [Bootstrap::lib] 
-
------------------------------------------
-version 1.03 at 2010-12-25 01:35:02 +0000
------------------------------------------
-
-  Change: 43fde9bb7427263f38660d20c1ea35e7ebebf64a
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-12-25 12:35:02 +0000
-
-    Fix misdetection of versions like '0.0.6' as 'any version'
-
-    This was a bug caused by a numeric comparison of a dotted version string.
-    Now fixed by forcing a string comparison, and tested to ensure we don't
-    revert. 
-
------------------------------------------
-version 1.02 at 2010-11-09 22:52:26 +0000
------------------------------------------
-
-  Change: 2cfd1c2eecda0c19a8f14799e48f9c2b2e4e2437
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-11-10 09:52:26 +0000
-
-    dzil: update dist.ini for deprecated plugin names... 
-
-  Change: 26c37c2e91e8f976d652cfda357dea86bda95248
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-11-10 09:51:46 +0000
-
-    Increase the width of the package name in the formatted output.
-
-    This makes the code a tiny bit cleaner when we have very long
-    distribution names present like, oh,
-    Dist::Zilla::Plugin::ReportVersions::Tiny, say. 
-
------------------------------------------
-version 1.01 at 2010-05-31 13:48:57 +0000
------------------------------------------
-
-  Change: d84bd1b209a2b615d0def4ecfc9a6c07f4efd9c3
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-05-31 23:48:57 +0000
-
-    Final polish: report more nicely 'any version' rather than 0 for modules. 
-
-  Change: 3a9415077d37cf2b6fadaf06dcb31983d30680c9
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-05-31 23:44:52 +0000
-
-    Make the "please help me out" text a little nicer. 
-
-  Change: c046d5b54a62f4df4a33e347ca5cb2ed3c33a67e
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-05-31 23:44:23 +0000
-
-    Added a work-around for Template::Test generating a second test plan.
-
-    This involves writing into a random package namespace, but since we exit
-    immediately after the damage should be reasonably controlled. 
-
-  Change: 2fb6dcf3b69406f82b4b65dd254d22af848cc99b
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-05-31 23:41:14 +0000
-
-    Add, and test, logging when a module is skipped due to the exclusion
-    list. 
-
-  Change: 6f725030cd21a3981665179d71cbf60df20b1db5
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-05-31 23:16:22 +0000
-
-    Rewrite the desired version reporting to support Perl requests also. This
-    also modifies the generated test code a bit to avoid 'no_plan', although
-    I am not yet certain this is the best idea. 
-
-  Change: 70879d88d5496fb540cb0bd1dc24a4afd36d34f0
-  Author: Apocalypse <perl@0ne.us>
-  Date : 2010-05-31 22:41:53 +0000
-
-    Added display of the the required version to modules, courtesy
-    Apocalypse. 
-
------------------------------------------
-version 1.00 at 2010-05-30 12:53:19 +0000
------------------------------------------
-
-  Change: 77ca9b3f20c0cb043aba5e4b9d84659ba68a289b
-  Author: Daniel Pittman <daniel@rimspace.net>
-  Date : 2010-05-30 22:53:19 +0000
-
-    Build the the new module, including tests and support infrastructure. 
-
-================
-End of releases.
-================
+1.00    2010-05-30    DANIELP (Daniel Pittman)
+	- First release!
