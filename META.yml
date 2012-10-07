@@ -29,17 +29,17 @@ requires:
   Dist::Zilla::Role::FileGatherer: 0
   Dist::Zilla::Role::TextTemplate: 0
   Moose: 0
-  version: 0
+  version: 0.9901
 resources:
   homepage: https://github.com/dolmen/p5-Dist-Zilla-Plugin-ReportVersions-Tiny
   repository: https://github.com/dolmen/p5-Dist-Zilla-Plugin-ReportVersions-Tiny.git
-version: 1.06
+version: 1.07
 x_Dist_Zilla:
   plugins:
     -
       class: Dist::Zilla::Plugin::Git::NextVersion
       name: '@Filter/Git::NextVersion'
-      version: 1.121820
+      version: 2.000
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: '@Filter/GatherDir'
@@ -127,7 +127,7 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Check
       name: '@Filter/Git::Check'
-      version: 1.121820
+      version: 2.000
     -
       class: Dist::Zilla::Plugin::TestRelease
       name: '@Filter/TestRelease'
@@ -139,11 +139,11 @@ x_Dist_Zilla:
     -
       class: Dist::Zilla::Plugin::Git::Commit
       name: '@Filter/Git::Commit'
-      version: 1.121820
+      version: 2.000
     -
       class: Dist::Zilla::Plugin::Git::Tag
       name: '@Filter/Git::Tag'
-      version: 1.121820
+      version: 2.000
     -
       class: Dist::Zilla::Plugin::UploadToCPAN
       name: '@Filter/UploadToCPAN'

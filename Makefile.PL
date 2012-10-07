@@ -36,9 +36,9 @@ my %WriteMakefileArgs = (
     "Dist::Zilla::Role::FileGatherer" => 0,
     "Dist::Zilla::Role::TextTemplate" => 0,
     "Moose" => 0,
-    "version" => 0
+    "version" => "0.9901"
   },
-  "VERSION" => "1.06",
+  "VERSION" => "1.07",
   "test" => {
     "TESTS" => "t/*.t"
   }
