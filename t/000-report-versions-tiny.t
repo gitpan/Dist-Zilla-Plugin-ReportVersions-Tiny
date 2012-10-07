@@ -51,6 +51,7 @@ sub pmver {
 eval { $v .= pmver('Dist::Zilla','3.101390') };
 eval { $v .= pmver('Dist::Zilla::File::FromCode','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::FileGatherer','any version') };
+eval { $v .= pmver('Dist::Zilla::Role::PrereqSource','any version') };
 eval { $v .= pmver('Dist::Zilla::Role::TextTemplate','any version') };
 eval { $v .= pmver('ExtUtils::MakeMaker','6.30') };
 eval { $v .= pmver('File::Find','any version') };

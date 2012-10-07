@@ -20,11 +20,17 @@
             "ExtUtils::MakeMaker" : "6.30"
          }
       },
+      "develop" : {
+         "requires" : {
+            "version" : "0.9901"
+         }
+      },
       "runtime" : {
          "requires" : {
             "Dist::Zilla" : "3.101390",
             "Dist::Zilla::File::FromCode" : "0",
             "Dist::Zilla::Role::FileGatherer" : "0",
+            "Dist::Zilla::Role::PrereqSource" : "0",
             "Dist::Zilla::Role::TextTemplate" : "0",
             "Moose" : "0",
             "version" : "0.9901"
@@ -54,7 +60,7 @@
          "web" : "https://github.com/dolmen/p5-Dist-Zilla-Plugin-ReportVersions-Tiny"
       }
    },
-   "version" : "1.07",
+   "version" : "1.08",
    "x_Dist_Zilla" : {
       "plugins" : [
          {
@@ -232,6 +238,11 @@
             },
             "name" : "Prereqs",
             "version" : "4.300023"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Git::Push",
+            "name" : "Git::Push",
+            "version" : "2.000"
          },
          {
             "class" : "Dist::Zilla::Plugin::FinderCode",
