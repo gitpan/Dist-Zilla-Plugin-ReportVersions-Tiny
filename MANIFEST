@@ -14,10 +14,10 @@ t/3part_prereq.t
 t/exclude.t
 t/include.t
 t/lib/MockZilla.pm
-t/release-distmeta.t
-t/release-has-version.t
-t/release-minimum-version.t
-t/release-pod-syntax.t
-t/release-portability.t
-t/release-unused-vars.t
 t/version-compare-as-number.t
+xt/release/distmeta.t
+xt/release/has-version.t
+xt/release/minimum-version.t
+xt/release/pod-syntax.t
+xt/release/portability.t
+xt/release/unused-vars.t

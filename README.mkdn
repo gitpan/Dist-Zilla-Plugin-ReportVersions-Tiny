@@ -4,7 +4,7 @@ Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during t
 
 # VERSION
 
-version 1.08
+version 1.09
 
 # SYNOPSIS
 
@@ -73,6 +73,27 @@ who suggested adding a list of "interesting modules" to the
 `Makefile.PL` and checking their version so that the test reports can show
 which version (if any) is in fact installed
 (see the [CPAN](http://search.cpan.org/perldoc?CPAN) dist for an example).
+
+# CAVEATS
+
+- The list of prereqs that are reported is built at `dzil build` time. Not at
+install time. This means that if the `configure` step of the
+[builder](http://search.cpan.org/perldoc?Dist::Zilla::Role::Builder) generates the list of prereqs dynamically
+(see ["dynamic\_config" in CPAN::Meta::Spec](http://search.cpan.org/perldoc?CPAN::Meta::Spec#dynamic\_config)), that list _may_ not match the real
+list of dependencies given to the CPAN client. In that case, you should use
+instead [Dist::Zilla::Plugin::Test::ReportPrereqs](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Test::ReportPrereqs). \[[RT\#83266](https://rt.cpan.org/Ticket/Display.html?id=83266)\]
+- Modules are loaded (`require`\-d, which means `BEGIN` blocks and code outside
+subs will run) to extract their versions. So this may have side effects.
+To fix this, a future version of this plugin may use [Module::Metadata](http://search.cpan.org/perldoc?Module::Metadata) to
+extract versions, and so add this module as a `test` prereqs of your
+distribution. \[[RT\#76308](https://rt.cpan.org/Ticket/Display.html?id=76308)\]
+- [Version ranges](http://search.cpan.org/perldoc?CPAN::Meta::Spec#Version Range) for prereqs are not supported.
+If you use them, you should use instead
+[Dist::Zilla::Plugin::Test::ReportPrereqs](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Test::ReportPrereqs). \[[RT\#87364](https://rt.cpan.org/Ticket/Display.html?id=87364)\]
+
+# SEE ALSO
+
+[Test::ReportPrereqs](http://search.cpan.org/perldoc?Test::ReportPrereqs) and [Dist::Zilla::Plugin::Test::ReportPrereqs](http://search.cpan.org/perldoc?Dist::Zilla::Plugin::Test::ReportPrereqs)
 
 # AUTHORS
 
