@@ -1,6 +1,6 @@
 package Dist::Zilla::Plugin::ReportVersions::Tiny;
 {
-  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.09';
+  $Dist::Zilla::Plugin::ReportVersions::Tiny::VERSION = '1.10';
 }
 use Moose;
 with 'Dist::Zilla::Role::FileGatherer';
@@ -94,7 +94,7 @@ sub applicable_modules {
     my $prereq = $self->zilla->prereqs->as_string_hash;
 
     # Identify the set of modules, and the highest version required.
-    for my $phase (keys %{ $prereq || {} }) {
+    for my $phase (qw<configure build test runtime>) {
         for my $type (keys %{ $prereq->{$phase} || {} }) {
             for my $module (keys %{ $prereq->{$phase}->{$type} || {} }) {
                 next if exists $modules{$module} and
@@ -211,7 +211,7 @@ Dist::Zilla::Plugin::ReportVersions::Tiny - reports dependency versions during t
 
 =head1 VERSION
 
-version 1.09
+version 1.10
 
 =head1 SYNOPSIS
 
